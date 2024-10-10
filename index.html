@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <h1 class="header-title">Library Management System</h1>
+        
+
+    </div>
+    <div>
+        <nav>
+            <img src="logo.png" alt="Library Logo" class="logo">
+            <ul class="nav">
+
+
+                <li> <img src="home.svg" alt="Profile" width="60" height="60"> <a href='index.html'
+                        data-item='Home'>Home</a></li>
+                <hr>
+
+                <li> <img src="about.png" alt="Profile" width="80" height="80">
+                    <a href='about.html' data-item='About'>About</a>
+                </li>
+                <hr>
+
+                <li> <img src="admin.png" alt="Profile" width="70" height="70">
+                    <a href='#' data-item='Admin Login'>Admin login</a>
+                </li>
+                <hr>
+
+                <li> <img src="adduser.png" alt="Profile" width="70" height="70">
+                    <a href='register.html' data-item='Register'>Register</a>
+                </li>
+                <hr><br>
+
+                <li> <img src="profile.png" alt="Profile" width="70" height="70">
+                    <a href='login.html' data-item='Login'>Login</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+    <main>
+        <div class="main-opt">
+            <fieldset>
+                <form class="action-form">
+                    <ul>
+                        <li>
+
+                            <button type="submit" formaction="add_books.html" class="button">
+                                <img src="addbook.png" alt="issuebook" width="30" height="30">
+                                Add Books</button>
+                        </li>
+                        <li>
+                            <button type="submit" formaction="issuebook.html" class="button">
+                                <img src="book.png" alt="issuebook" width="30" height="30">
+                                Issue Book</button>
+                        </li>
+                        <li>
+                            <button type="submit" formaction="return.html" class="button">
+                                <img src="returnbook.png" alt="issuebook" width="30" height="30">
+                                Return Book</button>
+                        </li>
+                        <li>
+                            <button type="submit" formaction="catalog.html" class="button">
+                                <img src="catalog.png" alt="issuebook" width="30" height="30">
+                                Catalog</button>
+                        </li>
+                    </ul>
+                </form>
+            </fieldset>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Library Management System. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h2>Welcome back User</h2>
+    <img src="login.png" height="106" width="320">
+    
+    <fieldset>
+        <form id="loginForm">
+            <div>
+                <input type="text" id="email" placeholder="Email or Phone number" required>
+            </div><br>
+            <div>
+                <input type="password" id="password" placeholder="Password" required>
+          </div><br>
+
+          <div>
+            <button type="submit">Log in</button>
+          </div>
+         
+          <hr>
+          <p>New user?</p>
+          <button><a href="register.html">Create new account</a></button>
+          
+        </form>
+       
+    </fieldset>
+    <a href="index.html">Home</a>
+
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Simple form validation
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return;
+            }
+
+            // Assuming login is successful
+            var userName = email.split('@')[0];
+            localStorage.setItem('userName', userName);
+
+            alert('Login successful!');
+            window.location.href = 'index.html'; // Redirect to home page
+        });
+    </script>
+</body>
+</html>

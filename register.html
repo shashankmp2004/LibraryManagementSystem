@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h2>Welcome User</h2>
+    <img src="login.png" height="106" width="320">
+    
+    <fieldset>
+        <form id="registerForm">
+            <div>
+                <input type="text" id="email" placeholder="Email or Phone number" required>
+            </div><br>
+            <div>
+                <input type="password" id="setPassword" placeholder="Set Password" required>
+          </div><br>
+          <div>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        </div><br>
+
+          <div>
+            <button type="submit">Register</button>
+          </div>
+         
+          <hr>
+          <p>Already a user?</p>
+          <button><a href="login.html">Login</a></button>
+        </form>
+    </fieldset>
+    
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var email = document.getElementById('email').value;
+            var setPassword = document.getElementById('setPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (setPassword !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Assuming registration is successful
+            var userName = email.split('@')[0];
+            localStorage.setItem('userName', userName);
+
+            alert('Registration successful!');
+            window.location.href = 'index.html'; // Redirect to home page
+        });
+    </script>
+</body>
+</html>
