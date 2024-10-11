@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="catalog-container">
+        <h2>Book Catalog</h2>
+        <table id="catalogTable">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="backToHome" onclick="window.location.href='index.html'">Back to Home Page</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        background-attachment: fixed;
+    }
+    body::before {
+        content: "";
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(10px);
+        z-index: -1;
+    }
+    .catalog-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 400px;
+        position: relative;
+        z-index: 0;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #successMessage {
+        color: green;
+        margin-top: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+        border: 1px solid #ddd;
+    }
+    th,
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var books = JSON.parse(localStorage.getItem('books')) || [];
+        function renderCatalog() {
+            var catalogTable = document.getElementById('catalogTable').getElementsByTagName('tbody')[0];
+            catalogTable.innerHTML = ''; // Clear the table
+            books.forEach(function (book) {
+                var row = catalogTable.insertRow();
+                row.insertCell(0).textContent = book.bookId;
+                row.insertCell(1).textContent = book.title;
+                row.insertCell(2).textContent = book.author;
+            });
+        }
+        if (document.getElementById('catalogTable')) {
+            renderCatalog();
+        }
+        if (document.getElementById('addBookForm')) {
+            document.getElementById('addBookForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                var bookId = document.getElementById('bookId').value;
+                var title = document.getElementById('title').value;
+                var author = document.getElementById('author').value;
+                var successMessage = document.getElementById('successMessage');
+                if (!bookId || !title || !author) {
+                    successMessage.textContent = 'All fields are required.';
+                    successMessage.style.color = 'red';
+                    return;
+                }
+                var book = { bookId: bookId, title: title, author: author };
+                books.push(book);
+                localStorage.setItem('books', JSON.stringify(books));
+                renderCatalog();
+                successMessage.textContent = 'Book added successfully!';
+                successMessage.style.color = 'green';
+                document.getElementById('addBookForm').reset();
+            });
+        }
+    });
+
+</script>

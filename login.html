@@ -17,21 +17,17 @@
             </div><br>
             <div>
                 <input type="password" id="password" placeholder="Password" required>
-          </div><br>
-
-          <div>
+        </div><br>
+        <div>
             <button type="submit">Log in</button>
-          </div>
-         
-          <hr>
-          <p>New user?</p>
-          <button><a href="register.html">Create new account</a></button>
-          
+        </div>
+        
+        <hr>
+        <p>New user?</p>
+        <button><a href="register.html">Create new account</a></button>
         </form>
-       
     </fieldset>
     <a href="index.html">Home</a>
-
     
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -51,12 +47,12 @@
                 return;
             }
 
-            // Assuming login is successful
+            
             var userName = email.split('@')[0];
             localStorage.setItem('userName', userName);
 
             alert('Login successful!');
-            window.location.href = 'index.html'; // Redirect to home page
+            window.location.href = 'index.html'; 
         });
     </script>
 </body>

@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="issue-book-container">
+        <img src="book.png" width="40" height="40">
         <h2>Issue a Book</h2>
         <form id="issueBookForm">
             <label for="bookId">Book ID:</label>
@@ -33,7 +34,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Rows will be added here by JavaScript -->
                 </tbody>
             </table>
         </div>
@@ -59,7 +59,7 @@
 
 body::before {
     content: "";
-    background-image: url('library.jpg'); /* Update this path to your background image */
+    background-image: url('library.jpg'); 
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -151,9 +151,9 @@ th {
     var issuedBooks = JSON.parse(localStorage.getItem('issuedBooks')) || [];
     var historyTable = document.getElementById('historyTable').getElementsByTagName('tbody')[0];
 
-    // Function to render issued book history
+
     function renderHistory() {
-        historyTable.innerHTML = ''; // Clear the table
+        historyTable.innerHTML = ''; 
         issuedBooks.forEach(function(book) {
             var row = historyTable.insertRow();
             row.insertCell(0).textContent = book.bookId;
@@ -161,8 +161,6 @@ th {
             row.insertCell(2).textContent = book.issueDate;
         });
     }
-
-    // Initial render of history on page load
     renderHistory();
 
     document.getElementById('issueBookForm').addEventListener('submit', function(event) {
@@ -172,27 +170,17 @@ th {
         var userId = document.getElementById('userId').value;
         var issueDate = document.getElementById('issueDate').value;
         var successMessage = document.getElementById('successMessage');
-
-        // Simple form validation
         if (!bookId || !userId || !issueDate) {
             successMessage.textContent = 'All fields are required.';
             successMessage.style.color = 'red';
             return;
         }
-
-        // If validation passes
         successMessage.textContent = 'Book issued successfully!';
         successMessage.style.color = 'green';
-
-        // Store issued book details
         var issuedBook = { bookId: bookId, userId: userId, issueDate: issueDate };
         issuedBooks.push(issuedBook);
         localStorage.setItem('issuedBooks', JSON.stringify(issuedBooks));
-
-        // Render updated history
         renderHistory();
-        
-        // Clear the form fields
         document.getElementById('issueBookForm').reset();
     });
 });
