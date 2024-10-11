@@ -15,8 +15,9 @@ body {
     overflow: hidden !important;
     background-image: url('library.jpg');   
     background-repeat: no-repeat;
-      background-attachment: fixed;
+    background-attachment: fixed;
     background-size: cover;
+    
     
 }
 body::before {
@@ -37,14 +38,8 @@ body::before {
 .main-content {
     padding: 20px;
 }
-h1 {
-    font-size: 50px; 
-    text-align: center; 
-    margin-bottom: 0px;
-    color:#000000 ; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px); 
-}
+
+
 .header-container {
     backdrop-filter: blur(3px);
     margin-bottom: 0;
@@ -54,16 +49,12 @@ h1 {
 
 }
 .header-title {
-    font-size: 50px;
-    color: #333; /* Darker color for better contrast */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
-    margin: 0; /* Remove default margin */
-    font-family: 'Arial', sans-serif; /* Ensure a clean, readable font */
-    font-weight: bold; /* Make the text bold */
-    letter-spacing: 1px; /* Add some letter spacing */
-    text-align: center; 
+    font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+	margin-bottom: 0px;
+
+    
 }
-  
 nav {
     margin: 15px;
     padding: 8px;
@@ -103,14 +94,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 20px; /* Add horizontal space between items */
+    margin: 0 20px; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 nav ul li img {
-    margin-right: 10px; /* Add space between image and text */
+    margin-right: 10px; 
 }
 
 nav ul li a {
@@ -246,45 +237,18 @@ button:hover {
     border: none; 
     border-radius: 5px;
     font-size: 18px;
-      cursor: pointer; /* Pointer cursor on hover */
+      cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s; 
 }
 
 .action-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    background-color: #45a049; 
+    transform: scale(1.05); 
 }
 
 .action-button:active {
-    transform: scale(0.95); /* Slightly shrink button on click */
+    transform: scale(0.95);
 }
-
-
-/* footer {
-    position: absolute;
-    font-size: 14px;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    line-height: 50px;
-  
-    background-color: #c8c8c8;
-    color: #000000;
-    text-align: center;
-  
-    a {
-      text-decoration: none;
-      color: inherit;
-      border-bottom: 1px solid;
-  
-      &:hover {
-        border-bottom: 1px transparent;
-      }
-    }
-  } */
-   
-/* Existing CSS... */
-
 .footer {
     background-color: #333;
     color: #fff;
@@ -334,3 +298,71 @@ button:hover {
 .footer-links a:hover {
     text-decoration: underline;
 }
+
+
+@media (max-width: 800px) {
+    .header-title {
+        font-size: 36px;
+    }
+
+    nav ul.nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul.nav li {
+        margin: 5px;
+    }
+
+    nav ul.nav li a {
+        font-size: 18px;
+    }
+
+    .footer-content {
+        padding: 0 20px;
+    }
+
+    nav ul.nav li img {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    .header-title {
+        font-size: 36px;
+    }
+
+    nav ul.nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul.nav li {
+        margin: 5px;
+    }
+
+    nav ul.nav li a {
+        font-size: 20px;
+    }
+
+    .footer-content {
+        padding: 0 20px;
+    }
+
+    nav ul.nav li img {
+        width: 30px;
+        height: 30px;
+    }
+    .logo{
+        display: none;
+    }
+
+   
+}
+
+
