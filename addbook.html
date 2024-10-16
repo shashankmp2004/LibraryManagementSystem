@@ -139,12 +139,10 @@ th {
             row.insertCell(2).textContent = book.author;
         });
     }
-
     
     if (document.getElementById('catalogTable')) {
         renderCatalog();
     }
-
     if (document.getElementById('addBookForm')) {
         document.getElementById('addBookForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -153,26 +151,21 @@ th {
             var title = document.getElementById('title').value;
             var author = document.getElementById('author').value;
             var successMessage = document.getElementById('successMessage');
-
         
             if (!bookId || !title || !author) {
                 successMessage.textContent = 'All fields are required.';
                 successMessage.style.color = 'red';
                 return;
             }
-
             
             var book = { bookId: bookId, title: title, author: author };
             books.push(book);
             localStorage.setItem('books', JSON.stringify(books));
-
             
             renderCatalog();
-
         
             successMessage.textContent = 'Book added successfully!';
             successMessage.style.color = 'green';
-
         
             document.getElementById('addBookForm').reset();
         });
